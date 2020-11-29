@@ -26,10 +26,10 @@ public class TestMybatis extends Junit4Test{
 	private void testUser() {
 		//add
 		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("id", "110");
-		map.put("username", "jerry");
-		map.put("password", "sl311");
-		map.put("name", "Jerry bruce");
+		map.put("id", "112");
+		map.put("username", "aaa");
+		map.put("password", "bbb");
+		map.put("name", "cccc");
 		userService.addUser(map);	
 		
 		User user = new User();
