@@ -1,7 +1,7 @@
 # Compiled class file
 *.class
-*.classpath
-*.gitignore
+.classpath
+.gitignore
 
 
 # Log file
@@ -12,7 +12,7 @@
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
-*.project
+.project
 
 
 # Package Files #
