@@ -13,7 +13,7 @@
         <tr>
           <td><a href="${pageContext.request.contextPath}/user/getUserInfo?userName=${user.userName}">
                 ${user.userName}</a></td>
-          <td>${user.name}</td>
+          <td>${user.userId}</td>
         </tr>                         
       </c:forEach>
     </table>

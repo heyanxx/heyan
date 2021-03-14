@@ -7,13 +7,13 @@ import hy.ssm.pojo.User;
 
 public interface UserMapper {
 	//插入操作
-	public int insert(Map<String, Object> map);	
+	public int insert(User user);	
 	
 	//更新操作
-	public int update(Map<String, Object> map);
+	public int update(User user);
  
 	//删除操作
-	public int delete(Map<String, Object> map);
+	public int delete(User user);
 	
 	//验证用户密码，并返回单个用户
 	public User getUser(User user);
@@ -22,4 +22,6 @@ public interface UserMapper {
 	public User getUserInfo(User user);
 	//查询多个用户
 	public List<User> getUserList();	
+	
+	public int getExistId(int id);
 }

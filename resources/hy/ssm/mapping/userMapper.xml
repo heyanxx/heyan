@@ -11,30 +11,40 @@
       resultType：输出结果类型，不管返回是多条还是单条，指定单条记录映射的pojo类型  
       resultMap:输出结果类型
     -->	
-    <insert id="insert" parameterType="map">
-        insert into t_user(userid,username,password,name) 
-          values(#{id},#{username},#{password},#{name})       
+    <insert id="insert" parameterType="hy.ssm.pojo.User">
+INSERT INTO USERS(USERID, USERNAME, PASSWORD, USERAUTHO, ACCESSTIME, CREATTIME, UPDATETIME) 
+VALUES (#{userId}, #{userName}, #{passWord}, 0, 
+TO_DATE(to_char(sysdate, 'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD HH24:MI:SS'),
+TO_DATE(to_char(sysdate, 'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD HH24:MI:SS'), 
+TO_DATE(to_char(sysdate, 'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD HH24:MI:SS'))
+
+      
     </insert> 	
     
     <update id="update" parameterType="map">
-        update t_user set username=#{userName},name=#{name},password=#{password} where userid=#{userId}
+        update users set username=#{userName},password=#{passWord},UPDATETIME=TO_DATE(to_char(sysdate, 'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD HH24:MI:SS')
+         where userid=#{userId}
     </update>    
     
     <delete id="delete" parameterType="map">
-        delete from t_user where userid=#{userId}
+        delete from users where userid=#{userId}
     </delete>   
  
 	<!--根据用户名称查询用户信息，可能返回多条    ${}：表示sql的拼接，通过${}接收参数，将参数的内容不加任何修饰拼接在sql中。-->
  
 	<select id="getUser" parameterType="hy.ssm.pojo.User" resultType="hy.ssm.pojo.User">
-		select u.username,u.name,u.password from t_user u where u.username=#{userName}	
-		and u.password=#{password}
+		select u.userid,u.username,u.password from users u where u.username=#{userName}	
+		and u.password=#{passWord}
 	</select>
 	<select id="getUserInfo" parameterType="hy.ssm.pojo.User" resultType="hy.ssm.pojo.User">
-		select u.userid,u.username,u.name,u.password from t_user u where u.username=#{userName}			
+		select u.userid,u.username,u.password from users u where u.username=#{userName}			
 	</select>
 	
 	<select id="getUserList" resultType="hy.ssm.pojo.User">
-	    select userid,username,password,name from t_user
-	</select>    
+	    select userid,username,password from users
+	</select>
+	
+	<select id="getExistId" parameterType="int" resultType="int">
+	    select count(1) from users where userId = #{id}
+	</select>      
 </mapper>

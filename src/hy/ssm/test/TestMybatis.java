@@ -25,17 +25,16 @@ public class TestMybatis extends Junit4Test{
 	
 	private void testUser() {
 		//add
-		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("id", "112");
-		map.put("username", "aaa");
-		map.put("password", "bbb");
-		map.put("name", "cccc");
-		userService.addUser(map);	
+		/*
+		 * Map<String,Object> map = new HashMap<String,Object>(); map.put("id", "112");
+		 * map.put("username", "aaa"); map.put("password", "bbb"); map.put("name",
+		 * "cccc"); userService.addUser(map);
+		 */
 		
 		User user = new User();
 		user.setUserName("jerry");//userName, password 作为查询条件
-		user.setPassword("sl311");
+		user.setPassWord("sl311");
 		user = this.userService.getUser(user);
-		System.out.println(user.getName());		
+		System.out.println(user.getUserName());		
 	}
 }

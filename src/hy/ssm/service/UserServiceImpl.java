@@ -15,12 +15,12 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserMapper userMapper;//UserMapper 是接口
 	
-	public void addUser(Map<String,Object> map) {		
-		userMapper.insert(map);//调用接口的方法
+	public void addUser(User user) {		
+		userMapper.insert(user);//调用接口的方法
 	}	
 	
-	public int updateUser(Map<String, Object> map) {
-		return userMapper.update(map);
+	public int updateUser(User user) {
+		return userMapper.update(user);
 	}	
 	
 	public User getUser(User user) {
@@ -33,5 +33,11 @@ public class UserServiceImpl implements UserService {
 	
 	public List<User> getUserList(){
 		return this.userMapper.getUserList();
+	}
+
+	@Override
+	public int getExistId(int id) {
+		// TODO 自动生成的方法存根
+		return this.userMapper.getExistId(id);
 	}
 }

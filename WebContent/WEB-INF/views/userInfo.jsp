@@ -10,16 +10,16 @@
   <form name="userInfo" action="${pageContext.request.contextPath}/user/updateUser" method="post">
 	<table>	  
 	  <tr>
-	   <td>用户名：<input type="hidden" name="userId" value="${requestScope.user.userId }"></td>
-	   <td><input type="text" name="userName" readonly value="${requestScope.user.userName }"/></td>
+	   <td>用户名：</td>
+	   <td><input type="text" name="userName" readonly value="${requestScope.getuser.userName }"/></td>
 	  </tr>
 	  <tr>
 	   <td>密码：</td>
-	   <td><input type="password" name="password" value="${requestScope.user.password}"></td>
+	   <td><input type="password" name="passWord" value="${requestScope.getuser.passWord}"></td>
 	  </tr>
 	  <tr>
-	   <td>全名：</td>
-	   <td><input type="text" name="name" value="${requestScope.user.name }"/></td>
+	   <td>ID：</td>
+	   <td><input type="text" name="userId" value="${requestScope.getuser.userId }" readonly="readonly"/></td>
 	  </tr>
 	  <tr>
 	    <td><input type="submit" value="修改"></td>
