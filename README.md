@@ -9,6 +9,8 @@
 gradle refresh以后需要 build ptah 添加src 和resources文件作为source <br>
 default output folder <br>
 heyan/WebContent/WEB-INF/classes <br>
+deployment assembly->webcontent <br>
+
 
 ### 2.无法加载js,css等静态文件
 类似于 net::err_aborted 404 <br>
@@ -52,3 +54,11 @@ url要以.do结尾<br>
 修改springmvc.xml<br>
 
 &lt;mvc:default-servlet-handler/&gt;,&lt;&lt;&lt;&lt;&lt;好使<br>
+
+### 20210315.遇到问题
+严重: Error configuring application listener of class [org.springframework.web.context.ContextLoaderListener]
+试过deployment assembly-add-jar ，不行，试过网上许许多多方法都不对
+结果 删除了 gradle里
+implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.3.7.RELEASE'
+ 这个jar包后 回复正常
+
